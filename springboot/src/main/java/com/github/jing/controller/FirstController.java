@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FirstController {
 
     @GetMapping(value = "hello/{name}")
-    public String hello(@PathVariable String name) {
-        return "hello " + name;
+    public ResponseResult hello(@PathVariable String name) {
+        return new ResponseResult("hello " + name);
     }
 }
