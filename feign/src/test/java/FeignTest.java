@@ -8,10 +8,20 @@ import org.junit.Test;
 public class FeignTest {
 
     private FeignConnectorFactory feignConnectorFactory = new FeignConnectorFactory();
+    FeignConnector feignConnector = feignConnectorFactory.getInstance();
 
     @Test
     public void testFeign() {
-        FeignConnector feignConnector = feignConnectorFactory.getInstance();
         System.out.println(feignConnector.hello("jack"));
+    }
+
+    @Test
+    public void testErrorFeign() {
+        try {
+            System.out.println(feignConnector.hello2("jack"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

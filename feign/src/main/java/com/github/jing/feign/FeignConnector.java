@@ -50,4 +50,7 @@ public interface FeignConnector {
     @RequestLine("GET /hello/{name}")
     HelloResponse hello(@Param("name") String name);
 
+    @RequestLine("GET /hello2/{name}")
+    HelloResponse hello2(@Param("name") String name);
+
 }
