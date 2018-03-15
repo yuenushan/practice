@@ -21,6 +21,7 @@ public class RealSubjectTest {
     @Test
     public void request() throws Exception {
         subject.request();
+//        subject.hello();
     }
 
 }
