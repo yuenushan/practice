@@ -29,10 +29,11 @@ public class Client {
     }
 
     public static void main(String[] args) {
-        ChainHandler chainHandlerA = new ChainHandlerA();
-        ChainHandler chainHandlerB = new ChainHandlerB();
-        ChainHandler chainHandlerC = new ChainHandlerC();
-        List<ChainHandler> chainHandlers = Arrays.asList(chainHandlerA, chainHandlerB, chainHandlerC);
+        List<ChainHandler> chainHandlers = Arrays.asList(
+                new ChainHandlerA(),
+                new ChainHandlerB(),
+                new ChainHandlerC()
+        );
         Chain chain = new Chain(chainHandlers);
         chain.proceed();
     }
