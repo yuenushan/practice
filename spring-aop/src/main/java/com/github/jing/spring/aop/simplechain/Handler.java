@@ -1,4 +1,4 @@
-package com.github.jing.spring.aop.chain;
+package com.github.jing.spring.aop.simplechain;
 
 /**
  * Created by chenjing28 on 18/3/16.

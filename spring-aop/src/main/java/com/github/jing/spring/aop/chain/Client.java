@@ -1,38 +1,39 @@
 package com.github.jing.spring.aop.chain;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by chenjing28 on 18/3/16.
  */
 public class Client {
-
-    static class HandlerA extends Handler {
+    static class ChainHandlerA extends ChainHandler {
         @Override
-        protected void handlerProcess() {
+        protected void handleProcess() {
             System.out.println("handle by A");
         }
     }
 
-    static class HandlerB extends Handler {
+    static class ChainHandlerB extends ChainHandler {
         @Override
-        protected void handlerProcess() {
+        protected void handleProcess() {
             System.out.println("handle by B");
         }
     }
 
-    static class HandlerC extends Handler {
+    static class ChainHandlerC extends ChainHandler {
         @Override
-        protected void handlerProcess() {
+        protected void handleProcess() {
             System.out.println("handle by C");
         }
     }
 
     public static void main(String[] args) {
-        Handler handlerA = new HandlerA();
-        Handler handlerB = new HandlerB();
-        Handler handlerC = new HandlerC();
-        handlerA.setSuccesor(handlerB);
-        handlerB.setSuccesor(handlerC);
-        handlerA.execute();
+        ChainHandler chainHandlerA = new ChainHandlerA();
+        ChainHandler chainHandlerB = new ChainHandlerB();
+        ChainHandler chainHandlerC = new ChainHandlerC();
+        List<ChainHandler> chainHandlers = Arrays.asList(chainHandlerA, chainHandlerB, chainHandlerC);
+        Chain chain = new Chain(chainHandlers);
+        chain.proceed();
     }
-
 }
