@@ -13,6 +13,7 @@ public class PersonTest {
 
     @Test
     public void testIoc() {
+        // TODO 回头一定要理清Bean的生命周期 （桌面上截的那个图）
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(Person.class);
         assertNotNull(applicationContext.getBean("person"));
     }
